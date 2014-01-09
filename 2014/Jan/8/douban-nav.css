@@ -15,6 +15,7 @@ body {
 	color: #d5d5d5;
 	height: 28px;
 	overflow: hidden;
+	min-width: 950px;
 }
 
 .global-nav li {
