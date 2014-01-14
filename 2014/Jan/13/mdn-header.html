@@ -1,77 +1,187 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html">
-		<meta charset="utf-8">
-		<title>MDN-index</title>
-		<link rel="stylesheet" type="text/css" href="mdn-header.css">
-	</head>
-	<body>
-		<div class="notice">
-			<p>
-				<strong>Welcome to the new, Improved MDN design.</strong> We hope you like it! If you have any suggestions or comments, <a href="javascript:void(0);">please share!</a>
-			</p>
-		</div>
-		<div class="header">
-			<div class="header-login">
-				<a id="tab" href="javascript:void(0);">mozilla</a>
-				<a id="signin" href="javascript:void(0);"><span id="signin-icon" class="signin"></span><span id="signin-text" class="signin">Sign in with Persona</span></a>
-			</div>
-			<a id="logo" href="javascript:void(0);">Mozilla Developer Network</a>
-			<ul id="global-nav">
-				<li>
-					<a id="zones" href="javascript:void(0);">ZONES</a>
-					<div class="popover">
-						<ul id="zones-nav">
-							<li><a href="javascript:void(0);">Add-ons</a></li>
-							<li><a href="javascript:void(0);">App Center</a></li>
-							<li><a href="javascript:void(0);">Firefox</a></li>
-							<li><a href="javascript:void(0);">Firefox Marketplace</a></li>
-							<li><a href="javascript:void(0);">Firefox OS</a></li>
-							<li><a href="javascript:void(0);">Persona</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<a id="web-platform" href="javascript:void(0);">WEB PLATFORM</a>
-					<div class="popover">
-						<div class="popover-column">
-							<span class="title">TECHNOLOGIES</span>
-							<ul id="technologies-nav">
-								<li><a href="javascript:void(0);">HTML</a></li>
-								<li><a href="javascript:void(0);">CSS</a></li>
-								<li><a href="javascript:void(0);">JavaScript</a></li>
-								<li><a href="javascript:void(0);">Graphics</a></li>
-								<li><a href="javascript:void(0);">APIs / DOM</a></li>
-								<li><a href="javascript:void(0);">Apps</a></li>
-								<li><a href="javascript:void(0);">MathML</a></li>
-							</ul>
-						</div>
-						<div class="popover-column">
-							<span class="title">REFERENCES &amp; GUIDES</span>
-							<ul id="technologies-nav">
-								<li><a href="javascript:void(0);">Tutorials</a></li>
-								<li><a href="javascript:void(0);">References</a></li>
-								<li><a href="javascript:void(0);">Developer Guides</a></li>
-								<li><a href="javascript:void(0);">Accessibility</a></li>
-								<li><a href="javascript:void(0);">Demos</a></li>
-								<li><a href="javascript:void(0);">...more docs</a></li>
-							</ul>
-						</div>
-					</div>
-				</li>
-				<li><a href="javascript:void(0);">DEVELOPER PROGRAM</a></li>
-				<li><a href="javascript:void(0);">TOOLS</a></li>
-				<li><a href="javascript:void(0);">DEMOS</a></li>
-				<li>
-					<form>
-						<input id="search-nav" type="search">
-						<span id="search-icon"></span>
-					</form>
-				</li>
-			</ul>
-		</div>
-		<div class="content">
-		</div>
-	</body>
+    <head>
+        <meta http-equiv="content-type" content="text/html">
+        <meta charset="utf-8">
+        <title>MDN-index</title>
+        <link rel="stylesheet" type="text/css" href="mdn-header.css">
+    </head>
+    <body>
+        <div class="notice">
+            <p>
+                <strong>Welcome to the new, Improved MDN design.</strong> We hope you like it! If you have any suggestions or comments, <a href="javascript:void(0);">please share!</a>
+            </p>
+        </div>
+        <div class="header">
+            <div class="header-login">
+                <a id="tab" href="javascript:void(0);">mozilla</a>
+                <a id="signin" href="javascript:void(0);"><span id="signin-icon" class="signin"></span><span id="signin-text" class="signin">Sign in with Persona</span></a>
+            </div>
+            <a id="logo" href="javascript:void(0);">Mozilla Developer Network</a>
+            <ul id="global-nav">
+                <li>
+                    <a id="zones" href="javascript:void(0);">ZONES</a>
+                    <div id="zones-nav" class="popover">
+                        <ul>
+                            <li><a href="javascript:void(0);">Add-ons</a></li>
+                            <li><a href="javascript:void(0);">App Center</a></li>
+                            <li><a href="javascript:void(0);">Firefox</a></li>
+                            <li><a href="javascript:void(0);">Firefox Marketplace</a></li>
+                            <li><a href="javascript:void(0);">Firefox OS</a></li>
+                            <li><a href="javascript:void(0);">Persona</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a id="web-platform" href="javascript:void(0);">WEB PLATFORM</a>
+                    <div id="web-platform-nav" class="popover">
+                        <div class="popover-column">
+                            <span class="title">TECHNOLOGIES</span>
+                            <ul>
+                                <li><a href="javascript:void(0);">HTML</a></li>
+                                <li><a href="javascript:void(0);">CSS</a></li>
+                                <li><a href="javascript:void(0);">JavaScript</a></li>
+                                <li><a href="javascript:void(0);">Graphics</a></li>
+                                <li><a href="javascript:void(0);">APIs / DOM</a></li>
+                                <li><a href="javascript:void(0);">Apps</a></li>
+                                <li><a href="javascript:void(0);">MathML</a></li>
+                            </ul>
+                        </div>
+                        <div class="popover-column">
+                            <span class="title">REFERENCES &amp; GUIDES</span>
+                            <ul>
+                                <li><a href="javascript:void(0);">Tutorials</a></li>
+                                <li><a href="javascript:void(0);">References</a></li>
+                                <li><a href="javascript:void(0);">Developer Guides</a></li>
+                                <li><a href="javascript:void(0);">Accessibility</a></li>
+                                <li><a href="javascript:void(0);">Demos</a></li>
+                                <li><a href="javascript:void(0);">...more docs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="javascript:void(0);">DEVELOPER PROGRAM</a></li>
+                <li><a href="javascript:void(0);">TOOLS</a></li>
+                <li><a href="javascript:void(0);">DEMOS</a></li>
+                <li>
+                    <form>
+                        <input id="search-nav" type="search">
+                        <span id="search-icon"></span>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <script>
+            (function() {
+
+                var fadeIn = function(element, speed) {
+                    if(element.style.display !== "block") {
+                        var opacity = 0,
+                            inteval = null,
+                            flag = true;
+                            __in = function() {
+                                if(opacity >= 1) {
+                                    element.style.opacity = 1;
+                                    clearInterval(inteval);
+                                } else {
+                                    element.style.opacity = opacity;
+                                    if(flag) {
+                                        element.style.display = "block";
+                                        flag = false;
+                                    }       
+                                    opacity += 1 / 30;
+                                }
+                            };
+
+                        if(!speed || typeof speed !== "number") {
+                            speed = 5;
+                        }
+                        inteval = setInterval(__in, speed);
+                    }
+                };
+
+                var fadeOut = function(element, speed) {
+                    if(element.style.display !== "none") {
+                        var opacity = 1,
+                            inteval = null,
+                            flag = true;
+                            __out = function() {
+                                if(opacity <= 0) {
+                                    element.style.opacity = 0;
+                                    element.style.display = "none";
+                                    clearInterval(inteval);    
+                                } else {
+                                    opacity -= 1 / 30;
+                                    element.style.opacity = opacity; 
+                                }
+                            };
+                            
+                        if(!speed || typeof speed !== "number") {
+                            speed = 5;
+                        }
+
+                        inteval = setInterval(__out, speed);
+                    }
+                };
+
+                var oZonesLink = document.querySelector("#zones"),
+                    oWebPlatformLink = document.querySelector("#web-platform"),
+                    oZonesPopup = document.querySelector("#zones-nav"),
+                    oWebPlatformPopup = document.querySelector("#web-platform-nav"),
+                    bOverZonesPopup = false,
+                    bOverZonesLink = false,
+                    bOverWebPlatformPopup = false;
+
+                var fadeInZonePopup = function() {
+                        fadeIn(oZonesPopup); 
+                    }, fadeOutZonePopup = function() {
+                        fadeOut(oZonesPopup);
+                    }, fadeInWebPlatformPopup = function() {
+                        fadeIn(oWebPlatformPopup);
+                    }, fadeOutWebPlatformPopup = function() {
+                        fadeOut(oWebPlatformPopup); 
+                    };
+
+                oZonesLink.addEventListener("mouseover", function() {
+                    console.log("over link");
+                    bOverZonesLink = true;
+                    fadeInZonePopup();
+                });
+
+                oZonesLink.addEventListener("mouseout", function() {
+                    console.log("out link");
+                    var t = setTimeout(function() {
+                        console.log("---" + bOverZonesPopup + "----");
+                        if(!bOverZonesPopup) {
+                            console.log("sorry, im");
+                            fadeOutZonePopup();
+                            bOverZonesPopup = false;
+                        }
+                        clearTimeout(t);
+                    }, 300);
+
+                    bOverZonesLink = false;
+                });
+
+                oZonesPopup.addEventListener("mouseover", function() {
+                    console.log("over popup");
+                    bOverZonesPopup = true;
+                });
+
+                oZonesPopup.addEventListener("mouseout", function() {
+                    console.log("out popup");
+                    var t = setTimeout(function() {
+                        if(!bOverZonesLink) {
+                            fadeOutZonePopup();
+                            bOverZonesLink = false;
+                        }
+                        clearTimeout(t);
+                    }, 300);
+
+                    bOverZonesPopup = false;
+                });
+
+            }());
+        </script>
+    </body>
 </html>
