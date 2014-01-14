@@ -21,7 +21,7 @@
             <ul id="global-nav">
                 <li>
                     <a id="zones" href="javascript:void(0);">ZONES</a>
-                    <div id="zones-nav" class="popover">
+                    <div id="zones-nav" class="popup">
                         <ul>
                             <li><a href="javascript:void(0);">Add-ons</a></li>
                             <li><a href="javascript:void(0);">App Center</a></li>
@@ -34,8 +34,8 @@
                 </li>
                 <li>
                     <a id="web-platform" href="javascript:void(0);">WEB PLATFORM</a>
-                    <div id="web-platform-nav" class="popover">
-                        <div class="popover-column">
+                    <div id="web-platform-nav" class="popup">
+                        <div class="popup-column">
                             <span class="title">TECHNOLOGIES</span>
                             <ul>
                                 <li><a href="javascript:void(0);">HTML</a></li>
@@ -47,7 +47,7 @@
                                 <li><a href="javascript:void(0);">MathML</a></li>
                             </ul>
                         </div>
-                        <div class="popover-column">
+                        <div class="popup-column">
                             <span class="title">REFERENCES &amp; GUIDES</span>
                             <ul>
                                 <li><a href="javascript:void(0);">Tutorials</a></li>
@@ -127,60 +127,57 @@
                 var oZonesLink = document.querySelector("#zones"),
                     oWebPlatformLink = document.querySelector("#web-platform"),
                     oZonesPopup = document.querySelector("#zones-nav"),
-                    oWebPlatformPopup = document.querySelector("#web-platform-nav"),
-                    bOverZonesPopup = false,
-                    bOverZonesLink = false,
-                    bOverWebPlatformPopup = false;
+                    oWebPlatformPopup = document.querySelector("#web-platform-nav");
 
-                var fadeInZonePopup = function() {
-                        fadeIn(oZonesPopup); 
-                    }, fadeOutZonePopup = function() {
-                        fadeOut(oZonesPopup);
-                    }, fadeInWebPlatformPopup = function() {
-                        fadeIn(oWebPlatformPopup);
-                    }, fadeOutWebPlatformPopup = function() {
-                        fadeOut(oWebPlatformPopup); 
-                    };
+                
 
-                oZonesLink.addEventListener("mouseover", function() {
-                    console.log("over link");
-                    bOverZonesLink = true;
-                    fadeInZonePopup();
-                });
+                var initPopup = function(trigger, popup) {
+                    var bOverPopup = false,
+                        bOverTrigger = false;
 
-                oZonesLink.addEventListener("mouseout", function() {
-                    console.log("out link");
-                    var t = setTimeout(function() {
-                        console.log("---" + bOverZonesPopup + "----");
-                        if(!bOverZonesPopup) {
-                            console.log("sorry, im");
-                            fadeOutZonePopup();
-                            bOverZonesPopup = false;
+                    trigger.addEventListener("mouseover", function() {
+                        bOverTrigger = true;
+                        var t = setTimeout(function() {
+                            fadeIn(popup);
+                            clearTimeout(t);
+                        }, 200);
+                    });
+
+                    trigger.addEventListener("mouseout", function() {
+                        var t = setTimeout(function() {
+                            if(!bOverPopup) {
+                                fadeOut(popup);
+                                bOverPopup = false;
+                            }
+                            clearTimeout(t);
+                        }, 200);
+
+                        bOverTrigger = false;
+                    });
+
+                    popup.addEventListener("mouseover", function(event) {
+                        if(!this.contains(event.fromElement)) {
+                            bOverPopup = true;
                         }
-                        clearTimeout(t);
-                    }, 300);
+                    });
 
-                    bOverZonesLink = false;
-                });
+                    popup.addEventListener("mouseout", function(event) {
+                        if(!this.contains(event.toElement)) {
+                            var t = setTimeout(function() {
+                                if(!bOverTrigger) {
+                                    fadeOut(popup);
+                                    bOverTrigger = false;
+                                }
+                                clearTimeout(t);
+                            }, 200);
 
-                oZonesPopup.addEventListener("mouseover", function() {
-                    console.log("over popup");
-                    bOverZonesPopup = true;
-                });
-
-                oZonesPopup.addEventListener("mouseout", function() {
-                    console.log("out popup");
-                    var t = setTimeout(function() {
-                        if(!bOverZonesLink) {
-                            fadeOutZonePopup();
-                            bOverZonesLink = false;
+                            bOverPopup = false;
                         }
-                        clearTimeout(t);
-                    }, 300);
-
-                    bOverZonesPopup = false;
-                });
-
+                    });
+                };
+                
+                initPopup(oZonesLink, oZonesPopup);
+                initPopup(oWebPlatformLink, oWebPlatformPopup)
             }());
         </script>
     </body>
