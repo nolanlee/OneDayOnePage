@@ -35,11 +35,18 @@ body {
 	color: #369;
 }
 .header {
+	position: relative;
 	padding-left: 24px;
 	padding-right: 24px;
 }
 
-.header #tab {
+.header:after, .header .header-login:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.header .header-login #tab {
 	background-image: url(image/tab.png);
 	text-indent: -2000px;
 	display: block;
@@ -48,35 +55,128 @@ body {
 	float: right;
 }
 
-.header #signin {
+.header .header-login #signin {
 	text-decoration: none;
 	color: #fff;
 	background-image: -webkit-linear-gradient(#43a6e2,#287cc2);
+	background-image: -moz-linear-gradient(#43a6e2,#287cc2);
+	background-image: -ms-linear-gradient(#43a6e2,#287cc2);
+	background-image: linear-gradient(#43a6e2,#287cc2);
+	background-color: #43a6e2; /*for IE 9-*/
 	display: inline-block;
+	position: absolute;
+	top: 12px;
+	right: 200px;
+	border-radius: 3px;
 }
 
-.header #signin #signin-icon {
+.header .header-login #signin #signin-icon {
 	background-image: url(image/signin.png);
 	background-repeat: no-repeat;
-	background-position: 0 0;
+	background-position: 8px 4px;
 	display: inline-block;
-	width: 14px;
-	height: 14px;
-	background-size: cover;
+	width: 27px;
+	height: 24px;
+	background-size: 15px;
+	vertical-align: top;
 }
 
-.header #signin #signin-icon:after {
-	
-}
-
-.header #signin #signin-text {
+.header .header-login #signin #signin-text {
 	display: inline-block;
 	padding: 0 10px 0 20px;
 	line-height: 24px;
 	background-image: -webkit-linear-gradient(#56565a,#3a3a3a);
+	background-image: -moz-linear-gradient(#56565a,#3a3a3a);
+	background-image: -ms-linear-gradient(#56565a,#3a3a3a);
+	background-image: linear-gradient(#56565a,#3a3a3a);
+	background-color: #56565a; /*for IE 9-*/
 	font-weight: bold;
+	font-weight: bold;
+	border-radius: 3px;
 }
 
-.header #signin #signin-text:after {
-	
+.header .header-login #signin .signin:after {
+	content: '';
+	position: absolute;
+	top: 0;	
+	width: 24px;
+	height: 24px;
+	-webkit-transform: scale(.707) rotate(45deg);
+	-moz-transform: scale(.707) rotate(45deg);
+	-ms-transform: scale(.707) rotate(45deg);
+	transform: scale(.707) rotate(45deg);
+	border-radius: 0 3px 0 50px;
+	border-radius: 0 3px 0 50px;	
 }
+
+.header .header-login #signin #signin-icon:after {
+	left: 16px;
+	background: -webkit-linear-gradient(left top, #43a6e2, #287cc2);
+	background: -moz-linear-gradient(left top, #43a6e2, #287cc2);
+	background: -ms-linear-gradient(left top, #43a6e2, #287cc2);
+	background: linear-gradient(left top, #43a6e2, #287cc2);
+}
+
+.header .header-login #signin #signin-text:after {
+	right: -11px;
+	background: -webkit-linear-gradient(left top, #56565a, #3a3a3a);
+	background: -moz-linear-gradient(left top, #56565a, #3a3a3a);
+	background: -ms-linear-gradient(left top, #56565a, #3a3a3a);
+	background: linear-gradient(left top, #56565a, #3a3a3a);
+}
+
+.header #logo {
+	background-image: url(image/logo.svg);
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-indent: -2000px;
+	width: 216px;
+	height: 54px;
+}
+
+.header #global-nav {
+	list-style: none;
+	display: inline-block;
+	float: right;
+	margin: 20px 0;
+}
+
+.header #global-nav>li {
+	display: inline-block;
+	margin-right: -3px;
+	margin-left: 31px;
+}
+
+.header #global-nav>li>a {
+	text-decoration: none;
+	color: #4d4e53;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 4px 8px;
+}
+
+.header #global-nav {
+	position: relative;
+}
+
+.header #global-nav #search-nav {
+	display: inline-block;
+	padding: 4px 8px;
+	width: 76px;
+	height: 29px;
+	border: none;
+	border-radius: 3px;
+	outline: none;
+	font-weight: bold;
+	color: #4d4e53;
+}
+
+.header #global-nav #search-nav {
+	display: inline-block;
+}
+
+.popover {
+	display: none;
+}
+
+
