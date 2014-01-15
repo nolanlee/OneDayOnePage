@@ -156,13 +156,13 @@
                     });
 
                     popup.addEventListener("mouseover", function(event) {
-                        if(!this.contains(event.fromElement)) {
+                        if(!this.contains(event.relatedTarget)) {
                             bOverPopup = true;
                         }
                     });
 
                     popup.addEventListener("mouseout", function(event) {
-                        if(!this.contains(event.toElement)) {
+                        if(!this.contains(event.relatedTarget)) {
                             var t = setTimeout(function() {
                                 if(!bOverTrigger) {
                                     fadeOut(popup);
