@@ -1,0 +1,181 @@
+ul, li, p, h2 {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #E4E4E4;
+    background-image: url("image/bg.png");
+    color: #292929;
+    color: rgba(0, 0, 0, 0.82);
+    font-family: Cambria, Georgia, serif;
+    -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    -ms-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-top-width: 2em;
+    border-width: 2em 0 0 0;
+    border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+    -webkit-border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+    -moz-border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+    -ms-border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+}
+.clear:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+.page {
+    margin: 0 auto;
+    width: 93.75%;
+}
+/*--------------header---------------------*/
+ #header #logo {
+    float: left;
+    background-image: url(image/logo-bg.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 31.875%;
+}
+#header #logo #logo-link {
+    display: block;
+    background-image: url(image/logo.png);
+    background-repeat: no-repeat;
+    background-position: 50% 54%;
+    text-indent: -2000px;
+    height: 284px;
+}
+#header #nav {
+    float: right;
+    list-style: none;
+    margin: 40px 0 1em;
+    text-align: center;
+    width: 65.9%;
+}
+#header #nav > li {
+    float: left;
+    width: 31.3%;
+    margin-right: 3%;
+}
+#header #nav > li:nth-child(3) {
+    margin-right: 0;
+}
+#header #nav .nav-link {
+    display: block;
+    color: #890101;
+    padding: 1em 0.5em 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family:'Book Antiqua', 'Palatino Linotype', Georgia, serif;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    background-image: url(image/ornament.png);
+    background-repeat: no-repeat;
+    background-position: 0 50px;
+}
+#header #nav .nav-link:hover {
+    color: #E43030;
+    background-position: 50% 50px;
+}
+#header #nav .nav-link > i {
+    display: block;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-family: Baskerville, Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
+    letter-spacing: 0.05em;
+}
+/*---------------------main--------------------------*/
+ #main {
+    float: right;
+    width: 65.9%;
+    ;
+}
+#main #content > h2 {
+    font: normal 2em"Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+    text-align: center;
+    margin-bottom: 0.25em
+}
+#main #content > p {
+    line-height: 1.4;
+}
+#main #section > h2 {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: normal;
+    margin: 0.75em 0 1em;
+    background-image: url(image/ornament.png);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+#main #section h2 > span {
+    background-image: url(image/bg.png);
+    padding: 0 1em;
+}
+#main #section abbr {
+    font-family: Baskerville, Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
+    font-style: italic;
+    font-weight: normal
+}
+#main #figures {
+    list-style: none;
+}
+#main #figures > li {
+    float: left;
+    margin-right: 3.3%;
+    width: 13.9%;
+    margin-bottom: 15px;
+}
+#main #figures > li:nth-child(6) {
+    margin-right: 0;
+}
+#main #figures .figure {
+    display: block;
+    color: #890101;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.1;
+    font-size: 10px;
+}
+#main #figures .figure:hover {
+    color: #E43030;
+    ;
+}
+#main #figures .figure > img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+}
+#main #figures .figure > span > strong {
+    display: block;
+    font-size: 14px;
+    font-family:"Book Antiqua", "Palatino Linotype", Georgia, serif;
+    letter-spacing: 0.1em;
+}
+/*---------------------footer--------------------------*/
+ #footer {
+    clear: both;
+    margin-left: 56.7%;
+    width: 20.5%;
+    background-image: url(image/ornament.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    padding: 40px 0 20px;
+    font-size: 12px;
+    text-align: center;
+}
+#footer p {
+    margin-bottom: 0.5em;
+}
+#footer a {
+    color: #890101;
+}
+#footer a:hover {
+    color: #E43030;
+}
