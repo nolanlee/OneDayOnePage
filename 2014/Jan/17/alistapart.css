@@ -1,0 +1,300 @@
+ul, li, p, h2 {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #E4E4E4;
+    background-image: url("image/bg.png");
+    color: #292929;
+    color: rgba(0, 0, 0, 0.82);
+    font-family: Cambria, Georgia, serif;
+    -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    -ms-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-top-width: 2em;
+    border-width: 2em 0 0 0;
+    border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+    -webkit-border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+    -moz-border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+    -ms-border-image: url(image/rag.png) 100% 0 0 0 repeat round;
+}
+.clear:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+.page {
+    margin: 0 auto;
+    width: 93.75%;
+}
+/*--------------header---------------------*/
+#header {
+    width: 100%;
+    position: relative;
+}
+#header #logo {
+    background-image: url(image/logo-bg.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+#header #logo #logo-link {
+    display: block;
+    background-image: url(image/logo.png);
+    background-repeat: no-repeat;
+    background-position: 50% 54%;
+    text-indent: -2000px;
+    height: 284px;
+}
+#header #nav {
+    list-style: none;
+    margin: 40px 0 1em;
+    text-align: center;
+}
+#header #nav > li {
+    width: 31.3%;
+    margin-right: 3%;
+}
+#header #nav .nav-link {
+    display: block;
+    color: #890101;
+    padding: 1em 0.5em 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family:'Book Antiqua', 'Palatino Linotype', Georgia, serif;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    background-image: url(image/ornament.png);
+    background-repeat: no-repeat;
+    background-position: 0 50px;
+}
+#header #nav .nav-link:hover {
+    color: #E43030;
+    background-position: 50% 50px;
+}
+#header #nav .nav-link > i {
+    display: block;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-family: Baskerville, Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
+    letter-spacing: 0.05em;
+}
+@media (min-width: 601px) and (max-width: 1299px) {
+    #header {
+        float: left;
+        width: 31.875%;
+    }
+    #header #nav {
+        border-top: 1px solid #888583;
+        width: 64.379%;
+        margin: 2em auto 0;
+    }
+    #header #nav > li {
+        width: 100%;
+    }
+    #header #nav > li:nth-child(1) {
+        border-top: 1px solid #FFF9EF;
+    }
+}
+@media (min-width: 1300px) {
+    #header #logo {
+        float: left;
+        width: 31.875%;
+    }
+    #header #nav {
+        float: right;
+        width: 65.9%;
+    }
+    #header #nav > li {
+        float: left;
+    }
+    #header #nav > li:nth-child(3) {
+        margin-right: 0;
+    }
+}
+@media (max-width: 600px) {
+    #header #logo {
+        width: 100%;
+        background: none;
+        padding-top: 45px;
+    }
+    #header #logo #logo-link {
+        height: 110px;
+    }
+    #header #nav {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        margin: 0;
+        border-top: 1px solid #888583;
+    }
+    #header #nav > li {
+        float: left;
+    }
+    #header #nav > li:nth-child(3) {
+        margin-right: 0;
+    }
+    #header #nav .nav-link {
+        display: block;
+        color: #890101;
+        padding: 1em 0.5em;
+        text-transform: uppercase;
+        font: 10px Helvetica, Arial, sans-serif;
+        letter-spacing: 0;
+        border-bottom: 1px solid #888583;
+    }
+    #header #nav .nav-link > i {
+        display: block;
+        font: inherit;
+        letter-spacing: 0;
+    }
+}
+/*---------------------main--------------------------*/
+#main {
+    float: right;
+    width: 65.9%;
+}
+#main #content > h2 {
+    font: normal 2em"Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+    text-align: center;
+    margin-bottom: 0.25em
+}
+#main #content > p {
+    line-height: 1.4;
+}
+#main #section > h2 {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: normal;
+    margin: 0.75em 0 1em;
+    background-image: url(image/ornament.png);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+#main #section h2 > span {
+    background-image: url(image/bg.png);
+    padding: 0 1em;
+}
+#main #section abbr {
+    font-family: Baskerville, Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
+    font-style: italic;
+    font-weight: normal
+}
+#main #figures {
+    list-style: none;
+}
+#main #figures > li {
+    float: left;
+    margin-right: 3.3%;
+    margin-bottom: 15px;
+}
+#main #figures .figure {
+    display: block;
+    color: #890101;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.1;
+    font-size: 10px;
+}
+#main #figures .figure:hover {
+    color: #E43030;
+}
+#main #figures .figure > img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+}
+#main #figures .figure > span > strong {
+    display: block;
+    font-size: 14px;
+    font-family:"Book Antiqua", "Palatino Linotype", Georgia, serif;
+    letter-spacing: 0.1em;
+}
+@media (min-width: 601px) and (max-width: 1299px) {
+    #main #content {
+        margin-top: 117px;
+    }
+    #main #figures > li {
+        width: 31.12%;
+    }
+    #main #figures > li:nth-child(3n) {
+        margin-right: 0;
+    }
+}
+@media (min-width: 1300px) {
+    #main #figures > li {
+        width: 13.9%;
+    }
+    #main #figures > li:nth-child(6) {
+        margin-right: 0;
+    }
+}
+@media (max-width: 600px) and (min-width: 401px) {
+    #main {
+        width: 100%;
+    }
+    #main #content > h2 {
+        font-size: 1.4em;
+    }
+    #main #figures > li {
+        width: 31.12%;
+    }
+    #main #figures > li:nth-child(3n) {
+        margin-right: 0;
+    }
+}
+@media (max-width: 400px) {
+    #main {
+        width: 100%;
+    }
+    #main #content > h2 {
+        font-size: 1.4em;
+    }
+    #main #figures > li {
+        width: 48.34%;
+    }
+    #main #figures > li:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+/*---------------------footer--------------------------*/
+#footer {
+    clear: both; 
+    background-image: url(image/ornament.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    padding: 40px 0 20px;
+    font-size: 12px;
+    width: 65.9%;
+    margin-left: 34%;
+    text-align: center;
+}
+#footer p {
+    margin-bottom: 0.5em;
+}
+#footer a {
+    color: #890101;
+}
+#footer a:hover {
+    color: #E43030;
+}
+@media (min-width: 1300px) {
+    #footer {
+        width: 20.5%;
+        margin-left: 56.7%;
+    }
+}
+@media (max-width: 600px) {
+    #footer {
+        width: 100%;
+        margin-left: 0;
+    }
+}

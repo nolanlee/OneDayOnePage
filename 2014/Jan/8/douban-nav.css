@@ -1,0 +1,92 @@
+body, ul, li{
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+body {
+	font: 12px Helvetica, Arial, sans-serif;
+}
+
+/*==================global nav=======================*/
+.global-nav {
+	background-color: #545652;
+	color: #d5d5d5;
+	height: 28px;
+	overflow: hidden;
+	min-width: 950px;
+}
+
+.global-nav li {
+	display: inline-block;
+	margin-right: -3px;
+}
+
+.global-nav .topic {
+	display: inline-block;
+	text-align: center;
+	padding: 0 12px;
+	height: 28px;
+	text-decoration: none;
+	line-height: 28px;
+}
+
+.global-nav .topic:link {
+	color: #d5d5d5;
+}
+
+.global-nav .topic:hover {
+	color: #ffffff;
+}
+
+.global-nav .profiles {
+	float: right;
+}
+
+/*==================nav=======================*/
+
+.nav {
+	background-color: #EDF4ED;
+}
+
+.nav .nav-wrap {
+	width: 950px;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 23px;
+	padding-bottom: 23px;
+}
+
+.nav .search {
+	position: absolute;
+	right: 0;
+}
+
+.nav .search .search-input {
+	width: 242px;
+	padding: 5px;
+}
+
+.nav .logo {
+	vertical-align: top;
+}
+
+.nav .nav-list {
+	display: inline-block;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.nav .nav-list li {
+	display: inline-block;
+	margin-right: -3px;
+}
+
+.nav .nav-list .nav-item {
+	color: #072;
+	display: inline-block;
+	text-decoration: none;
+	margin: 0 16px;
+}
