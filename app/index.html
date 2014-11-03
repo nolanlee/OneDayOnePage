@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Form Example With Backbone</title>
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">	
+		<link rel="stylesheet" type="text/css" href="css/index.css">	
+	</head>
+	<body>
+		<form role="form" class="form-horizontal col-md-offset-2 col-md-8">
+			<div class="form-group">
+				<label for="email" class="col-md-2 control-label request">邮箱：</label>
+				<div class="col-md-6">
+					<input id="email" type="email" class="form-control">
+				</div>
+				<div class="col-md-2">
+					<label class="msg msg-hidden control-label"></label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="datepicker" class="col-md-2 control-label">日期：</label>
+				<div class="col-md-6">
+					<input id="datepicker" type="date" class="form-control">
+				</div>
+				<div class="col-md-2">
+					<label class="msg msg-hidden control-label"></label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="col-md-2 control-label">地址：</label>
+				<div class="col-md-1">
+					<label for="open" class="control-label">开启</label>
+					<input id="open" type="checkbox" checked>
+				</div>
+				<div class="col-md-5">
+					<input id="address" type="email" class="form-control">
+				</div>
+				<div class="col-md-2">
+					<label class="msg msg-hidden control-label"></label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<input id="submit" type="submit" class="btn btn-primary" name="提交">
+				</div>
+			</div>
+		</form>
+		<script type="text/template" id="form-template">
+			<form role="form">
+				<div class="form-group">
+					<label for="email">邮箱：</label>
+					<input id="email" type="email" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="datepicker">日期：</label>
+					<input id="datepicker" type="date" class="form-control">
+				</div>
+				<div class="form-group from-inline">
+					<label for="address">地址：</label>
+					<input type="checkbox">
+					<input id="address" type="email" class="form-control">
+				</div>
+				<div class="form-group">
+					<input id="submit" type="submit" class="form-control" name="提交">
+				</div>
+			</form>
+		</script>
+		<script type="text/template" id="list-template">
+			
+		</script>
+		<script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../bower_components/underscore/underscore.js"></script>
+		<script type="text/javascript" src="../bower_components/backbone/backbone.js"></script>
+		<script type="text/javascript" src="../bower_components/backbone.localStorage/backbone.localStorage.js"></script>
+	</body>
+</html>

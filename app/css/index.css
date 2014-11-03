@@ -1,0 +1,12 @@
+.msg:before {
+	content: "* ";
+	display: inline;
+}
+.msg.msg-hidden {
+	display: none;
+}
+.control-label.request:before {
+	content: "* ";
+	display: inline;
+	color: #a94442;
+}
