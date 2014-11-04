@@ -1,11 +1,11 @@
 {
-	"version": "0.0.0",
-	"name": "form-test",
-	"dependencies": {
-		"jquery": "~1.10.0",
-		"underscore": "1.6.0",
-		"backbone.localStorage": "~1.1.0",
-		"backbone": "latest",
-		"bootstrap": "~3.0.0"
-	}
+    "version": "0.0.0",
+    "name": "form-test",
+    "dependencies": {
+        "jquery": "~1.10.0",
+        "underscore": "1.6.0",
+        "backbone.localStorage": "~1.1.0",
+        "backbone": "latest",
+        "bootstrap": "~3.0.0"
+    }
 }
