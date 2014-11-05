@@ -1,32 +1,52 @@
 var app = app || {};
 
 (function ($) {
-    app.DetailView = Backbone.view.extend({
-        el: '#detail',
+    app.DetailView = Backbone.View.extend({
+        el: '#detailPage',
 
         template: _.template($('#detail-template').html()),
 
         events: {
-            'submit #submit': 'save',
+            'submit form': 'save',
+            'click #back': 'back',
             // TODO: 'remove #remove': 'remove',
             'change #switchAddr': 'switchAddress'
         },
 
-        initialize: function () {
-            this.form = this.$('form')[0];
-            this.$address = this.$('#address');
-            this.$switchAddr = this.$('#switchAddr');
-            this.$messages = this.$('.msg');
-
+        initialize: function () {     
+            this.model = new app.Detail();       
             this.listenTo(this.model, 'invalid', this.alert);
         },
 
+        render: function() {
+            this.$el.html(this.template());
+            this.$address = this.$('#address');
+            this.$switchAddr = this.$('#switchAddr');
+            this.$messages = this.$('.msg');
+            this.form = this.$('form')[0];
+            return this;
+        },
+
         save: function(e) {
-            app.list.add({
-                email: this.form.email.value,
-                date: this.form.date.value,
-                address: this.form.address.value
-            });
+            e.preventDefault();
+            this._cancelAlert();
+            this.model.set('email', this.form.email.value);
+            if(this.form.date.value) {
+                this.model.set('date', this.form.date.value);
+            }
+            if(this.form.switchAddr.checked) {
+                this.model.set('openAddr', this.form.switchAddr.checked);
+                this.model.set('address', this.form.address.value);
+            } else {
+                this.model.unset('openAddr');
+            } 
+            
+            app.list.create(this.model);
+        },
+
+        back: function() {
+            this.remove();
+            app.list.trigger('show');
         },
 
         switchAddress: function() {
@@ -37,13 +57,16 @@ var app = app || {};
             }
         },
 
-        alert: function(error) {
-            switch(error) {
+        alert: function(model) {
+            switch(model.validationError) {
                 case 'email':
                     this._alert(this.form.email, '非法邮箱');
                     break;
                 case 'date':
                     this._alert(this.form.date, '非法日期');
+                    break;
+                case 'address':
+                    this._alert(this.form.address, '地址不能为空');
                     break;
             }
         },
@@ -56,8 +79,8 @@ var app = app || {};
                 .removeClass('msg-hidden');
         },
 
-        _cancelAlert: function(inputElement) {
-            $('.msg').text('').removeClass('msg-hidden');
+        _cancelAlert: function() {
+            $('.msg').text('').addClass('msg-hidden');
             $('.has-error').removeClass('has-error');
         }
     });

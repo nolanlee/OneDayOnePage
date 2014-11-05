@@ -8,18 +8,14 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">    
     </head>
     <body>
-		<section id="list">
-            <button id="new" class="btn">新建</button>
-            <ul id="list">
-            </ul>      
-        </section>
-		<section id="detail"></section>
+		<section id="listPage"></section>
+		<section id="detailPage"></section>
         <script type="text/template" id="detail-template">
             <form role="form" class="form-horizontal col-md-offset-2 col-md-8">
                 <div class="form-group">
                     <label for="email" class="col-md-2 control-label request">邮箱：</label>
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control">
+                        <input id="email" type="text" class="form-control">
                     </div>
                     <div class="col-md-2">
                         <label class="msg msg-hidden control-label"></label>
@@ -36,26 +32,44 @@
                 </div>
                 <div class="form-group">
                     <label for="address" class="col-md-2 control-label">地址：</label>
-                    <div class="col-md-1">
-                        <label for="switchAddr" class="control-label">开启</label>
-                        <input id="switchAddr" type="checkbox" checked>
-                    </div>
-                    <div class="col-md-5">
-                        <input id="address" type="email" class="form-control">
+                    <div class="col-md-6">
+                        <label for="switchAddr" class="control-label">开启
+                            <input id="switchAddr" type="checkbox" checked>
+                        </label>
+                        <input id="address" type="text" class="form-control">
                     </div>
                     <div class="col-md-2">
                         <label class="msg msg-hidden control-label"></label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-offset-2 col-md-1">
                         <input id="submit" type="submit" class="btn btn-primary" name="提交">
+                    </div>
+                    <div class="col-md-1">
+                        <button id="back" class="btn">返回</button>
                     </div>
                 </div>
             </form>
         </script>
         <script type="text/template" id="list-template">
-            <li></li>    
+            <button id="add" class="btn">新建</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>邮箱</th>
+                        <th>日期</th>
+                        <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody id="list">
+                </tbody>
+            </table> 
+        </script>
+        <script type="text/template" id="item-template">
+            <td><%- email %></td>
+            <td><%- date %></td>
+            <td><%- address %></td>
         </script>
         <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -67,6 +81,7 @@
         <script type="text/javascript" src="js/collections/list.js"></script>
         <script type="text/javascript" src="js/routers/router.js"></script>
         <script type="text/javascript" src="js/views/list-view.js"></script>
+        <script type="text/javascript" src="js/views/item-view.js"></script>
         <script type="text/javascript" src="js/views/detail-view.js"></script>
     </body>
 </html>
