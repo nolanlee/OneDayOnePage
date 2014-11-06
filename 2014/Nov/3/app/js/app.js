@@ -1,5 +1,6 @@
 var app = app || {};
 
 $(function () {
-    new app.ListView();
+    app.indexView = new app.ListView().render();
+    app.list.fetch();
 });

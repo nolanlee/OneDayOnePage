@@ -13,18 +13,14 @@ var app = app || {};
         initialize: function () {
             this.$page = $('#listPage');
 
-            this.listenTo(app.list, 'all', this.render);
             this.listenTo(app.list, 'show', this.show);
-            this.listenTo(app.list, 'add', this.add);
-            this.listenTo(app.list, 'reset', this.addAll);
-
-            this.render();          
+            this.listenTo(app.list, 'add', this.add);                   
         },
 
         render: function() {
             this.$page.html(this.template());
             this.$list = this.$('#list');
-            app.list.fetch({reset: true});
+            this.addAll();
             return this;
         },
 
@@ -36,12 +32,12 @@ var app = app || {};
             this.$el.hide();
         },
 
-        add: function(model) {
-            this.$list.html('');
-            this.$list.append(new app.ItemView({model: model}).render());
+        add: function(model) {           
+            this.$list.append(new app.ItemView({model: model}).render().el);
         },
 
         addAll: function() {
+            this.$list.html('');
             app.list.each(this.add, this);
         },
 

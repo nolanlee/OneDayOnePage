@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <label for="email" class="col-md-2 control-label request">邮箱：</label>
                     <div class="col-md-6">
-                        <input id="email" type="text" class="form-control">
+                        <input id="email" type="text" class="form-control" value="<%- email %>">
                     </div>
                     <div class="col-md-2">
                         <label class="msg msg-hidden control-label"></label>
@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="date" class="col-md-2 control-label">日期：</label>
                     <div class="col-md-6">
-                        <input id="date" type="date" class="form-control">
+                        <input id="date" type="date" class="form-control" value="<%- date %>">
                     </div>
                     <div class="col-md-2">
                         <label class="msg msg-hidden control-label"></label>
@@ -36,7 +36,7 @@
                         <label for="switchAddr" class="control-label">开启
                             <input id="switchAddr" type="checkbox" checked>
                         </label>
-                        <input id="address" type="text" class="form-control">
+                        <input id="address" type="text" class="form-control" value="<%- address %>">
                     </div>
                     <div class="col-md-2">
                         <label class="msg msg-hidden control-label"></label>
@@ -67,7 +67,7 @@
             </table> 
         </script>
         <script type="text/template" id="item-template">
-            <td><%- email %></td>
+            <td><a href="javascript:;"><%- email %></a></td>
             <td><%- date %></td>
             <td><%- address %></td>
         </script>

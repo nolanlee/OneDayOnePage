@@ -4,6 +4,10 @@ var app = app || {};
     app.ItemView = Backbone.View.extend({
         tagName: 'tr',
 
+        events: {
+            'click a': 'detail'
+        },
+
         template: _.template($('#item-template').html()),
 
         initialize: function () {
@@ -14,6 +18,11 @@ var app = app || {};
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
+        },
+
+        detail: function() {
+            app.indexView.hide();
+            new app.DetailView({model: this.model}).render();
         }
     });
 })(jQuery);

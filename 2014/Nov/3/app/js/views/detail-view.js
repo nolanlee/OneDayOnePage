@@ -14,12 +14,12 @@ var app = app || {};
         },
 
         initialize: function () {     
-            this.model = new app.Detail();       
+            this.model = this.model || new app.Detail();       
             this.listenTo(this.model, 'invalid', this.alert);
         },
 
         render: function() {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.model.toJSON()));
             this.$address = this.$('#address');
             this.$switchAddr = this.$('#switchAddr');
             this.$messages = this.$('.msg');
@@ -36,16 +36,21 @@ var app = app || {};
             }
             if(this.form.switchAddr.checked) {
                 this.model.set('openAddr', this.form.switchAddr.checked);
-                this.model.set('address', this.form.address.value);
             } else {
                 this.model.unset('openAddr');
-            } 
+                this.form.address.value = '';
+            }
             
-            app.list.create(this.model);
+            this.model.set('address', this.form.address.value);
+
+            if(this.model.isValid()) {
+                app.list.create(this.model);
+                this.back();
+            }
         },
 
         back: function() {
-            this.remove();
+            this.$el.html('');
             app.list.trigger('show');
         },
 
@@ -54,6 +59,7 @@ var app = app || {};
                 this.$address.show();
             } else {
                 this.$address.hide();
+                this.$address.val('');
             }
         },
 

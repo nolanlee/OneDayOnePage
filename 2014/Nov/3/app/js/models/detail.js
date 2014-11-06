@@ -3,6 +3,7 @@ var app = app || {};
 (function () {
     app.Detail = Backbone.Model.extend({
         defaults: {
+            email: null,
             date: new Date().toLocaleDateString(),
             address: null
         },
