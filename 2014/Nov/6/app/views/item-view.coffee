@@ -4,7 +4,7 @@ module.exports = class ItemView extends Chaplin.View
   events:
     'click a': 'detail'
 
-  template: _.template($('#item-template').html())
+  template: _.template $('#item-template').html()
 
   initialize: ->
     @listenTo @model, 'change', @render
@@ -15,4 +15,4 @@ module.exports = class ItemView extends Chaplin.View
 
   detail: ->
     app.indexView.hide()
-    new app.DetailView({model: this.model}).render();
+    new app.DetailView({model: @model}).render()
