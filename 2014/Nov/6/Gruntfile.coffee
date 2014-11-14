@@ -31,6 +31,7 @@ module.exports = (grunt)->
           '<%= assetsPath %>/dev/js/templates.js': 'app/views/templates/**/*.hbs'
 
     browserify:
+      
 
 
   grunt.loadNpmTasks 'grunt-browserify'
