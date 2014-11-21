@@ -1,6 +1,7 @@
-detail = require detail
+detail = require './detail'
+Backbone = require 'backbone'
 
-module.exports = class list extends Chaplin.Collection
+module.exports = class List extends Chaplin.Collection
   model: detail
 
   localStorage: new Backbone.LocalStorage('backbone-example')

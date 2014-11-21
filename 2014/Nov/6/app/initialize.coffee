@@ -1,4 +1,4 @@
-App = require 'application'
+App = require './application'
 
 $ ->
   new App
