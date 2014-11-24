@@ -7,25 +7,49 @@ module.exports = (grunt)->
     browserify:
       dist:
         files:
-          '<%= assetsPath %>/main.js': 'app/**/*.js'
-      # alias: ['./app/config.coffee:config']
-      # aliasMappings: [{
-      #   cwd: 'app/controller'
-      #   src: ['**/*.js']
-      #   dest: 'controller'
-      # }, {
-      #   cwd: 'app/view'
-      #   src: ['**/*.js']
-      #   dest: 'view'
-      # }]
-        insertGlobals: true
+          '<%= assetsPath %>/main.js': 'app/**/*.coffee'
+          # '<%= assetsPath %>/main.js': 'app/**/*.coffee'
+        options:
+          transform: ['coffeeify']
+        #   extensions: ['.coffee']
+        #   aliasMappings: [{
+        #     wd: 'app/view'
+        #     src: ['**/*.coffee']
+        #     dest: 'view'
+        #   }, {
+        #     wd: 'app/controller'
+        #    src: ['**/*.coffee']
+        #     dest: 'model'
+        #       src: ['**/*.coffee']
+        #     dest: 'controller'
+        #   }, {
+        #     wd: 'app/model'
+        #  }]
+        # options:
+        #   aliasMappings: [{
+        #     wd: 'app/view'
+        #     src: ['**/*.js']
+        #     dest: 'view'
+        #   }, {
+        #     wd: 'app/controller'
+        #     src: ['**/*.js']
+        #     dest: 'controller'
+        #   }, {
+        #     wd: 'app/model'
+        #     src: ['**/*.js']
+        #     dest: 'model'
+        #   }]
 
     clean:
       dist: [
         '<%= assetsPath %>/*'
       ]
 
+    coffeelint:
+      app: ['app/**/*.coffee']
+
   grunt.loadNpmTasks 'grunt-browserify'
   grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-coffeelint'
 
-  grunt.registerTask 'default', ['clean', 'browserify']
+  grunt.registerTask 'default', ['clean', 'coffeelint', 'browserify']
