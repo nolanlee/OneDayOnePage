@@ -1,1 +1,1 @@
-require('./controller/index-controller').init()
+require('controller/index-controller').init()

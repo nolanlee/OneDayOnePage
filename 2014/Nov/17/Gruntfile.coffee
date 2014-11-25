@@ -8,37 +8,22 @@ module.exports = (grunt)->
       dist:
         files:
           '<%= assetsPath %>/main.js': 'app/**/*.coffee'
-          # '<%= assetsPath %>/main.js': 'app/**/*.coffee'
         options:
           transform: ['coffeeify']
-        #   extensions: ['.coffee']
-        #   aliasMappings: [{
-        #     wd: 'app/view'
-        #     src: ['**/*.coffee']
-        #     dest: 'view'
-        #   }, {
-        #     wd: 'app/controller'
-        #    src: ['**/*.coffee']
-        #     dest: 'model'
-        #       src: ['**/*.coffee']
-        #     dest: 'controller'
-        #   }, {
-        #     wd: 'app/model'
-        #  }]
-        # options:
-        #   aliasMappings: [{
-        #     wd: 'app/view'
-        #     src: ['**/*.js']
-        #     dest: 'view'
-        #   }, {
-        #     wd: 'app/controller'
-        #     src: ['**/*.js']
-        #     dest: 'controller'
-        #   }, {
-        #     wd: 'app/model'
-        #     src: ['**/*.js']
-        #     dest: 'model'
-        #   }]
+          extensions: ['.coffee']
+          aliasMappings: [{
+            wd: 'app/view'
+            src: ['**/*.coffee']
+            dest: 'view'
+          }, {
+            wd: 'app/controller'
+            src: ['**/*.coffee'] 
+            dest: 'controller'
+          }, {
+            wd: 'app/model'
+            src: ['**/*.coffee']
+            dest: 'model'           
+          }]
 
     clean:
       dist: [

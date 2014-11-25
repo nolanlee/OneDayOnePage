@@ -1,5 +1,5 @@
-view = require '../view/index-view'
-model = require '../model/index-model'
+view = require 'view/index-view'
+model = require 'model/index-model'
 
 module.exports =
   init: ->
