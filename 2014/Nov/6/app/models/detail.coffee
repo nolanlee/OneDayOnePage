@@ -1,4 +1,6 @@
-module.exports = class Detail extends Chaplin.module
+Chaplin = require 'chaplin'
+
+module.exports = class Detail extends Chaplin.Model
   defaults:
     email: null
     date: new Date().toLocaleDateString()

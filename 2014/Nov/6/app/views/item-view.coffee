@@ -1,10 +1,12 @@
+Chaplin = require 'chaplin'
+
 module.exports = class ItemView extends Chaplin.View
-  tagName: 'tr',
+  tagName: 'tr'
 
   events:
     'click a': 'detail'
 
-  template: _.template $('#item-template').html()
+  template: require 'templates/item-template'
 
   initialize: ->
     @listenTo @model, 'change', @render

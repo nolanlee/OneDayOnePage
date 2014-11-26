@@ -1,15 +1,17 @@
+Chaplin = require 'chaplin'
+
 module.exports = class DetailView extends Chaplin.View
-  el: '#detailPage'
+  id: 'detailPage'
 
-  template: _.template $('#detail-template').html()
+  template: require 'templates/detail-template'
 
-  events: 
+  events:
     'submit form': 'save'
     'click #back': 'back'
     'change #switchAddr': 'switchAddress'
 
   initialize: ->
-    @model = @model or new app.Detail() 
+    @model = @model or new app.Detail()
     @listenTo @model, 'invalid', @alert
 
   render: ->
@@ -25,9 +27,9 @@ module.exports = class DetailView extends Chaplin.View
     @_cancelAlert()
     @model.set 'email', @form.email.value
     @model.set 'date', @form.date.value if @form.date.value
-    if @form.switchAddr.checked  
+    if @form.switchAddr.checked
       @model.set 'openAddr', @form.switchAddr.checked
-    else 
+    else
       @model.unset('openAddr')
     @form.address.value = ''
     
