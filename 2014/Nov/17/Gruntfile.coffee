@@ -9,13 +9,13 @@ module.exports = (grunt)->
     browserify:
       dist:
         files:
-          '<%= assetsPath %>/main.js': 'app/**/*.coffee'
+          '<%= assetsPath %>/main.js': ['app/**/*.coffee', 'app/**/*.hbs']
         options:
-          transform: ['coffeeify']
+          transform: ['coffeeify', 'hbsfy']
 
           browserifyOptions: 
-            extensions: '.coffee'
-            ignoreMissing: true
+            extensions: ['.coffee', '.hbs']
+            # ignoreMissing: true
             require: './app/assets/external.js'
 
           alias:
@@ -26,6 +26,10 @@ module.exports = (grunt)->
               src: '**/*.coffee'
               expose: 'view'
               cwd: './app/view'
+            }, {
+              src: '**/*.hbs'
+              expose: 'template'
+              cwd: './app/view/template'
             }, {
               src: '**/*.coffee'
               expose: 'controller'

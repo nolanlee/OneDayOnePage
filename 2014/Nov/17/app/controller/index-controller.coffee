@@ -3,5 +3,4 @@ model = require 'model/index-model'
 
 module.exports =
   init: ->
-    content = JSON.stringify new model()
-    new view().render content
+    new view().render new model()

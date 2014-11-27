@@ -2,5 +2,5 @@ require 'external'
 
 module.exports = ->
   name: 'Nolan'
-  age: '23'
-  comment: 'I came form coffeescript'
+  age: '25'
+  comment: 'I came from coffeescript'
