@@ -13,7 +13,7 @@ module.exports = (grunt)->
         options:
           transform: ['coffeeify', 'hbsfy']
 
-          browserifyOptions: 
+          browserifyOptions:
             extensions: ['.coffee', '.hbs']
             ignoreMissing: true
             # require: './app/assets/external.js'  # alias include require method
