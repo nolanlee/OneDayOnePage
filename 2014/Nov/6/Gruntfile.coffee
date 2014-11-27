@@ -1,3 +1,5 @@
+remapify = require 'remapify'
+
 module.exports = (grunt)->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
@@ -39,30 +41,31 @@ module.exports = (grunt)->
     browserify:
       dist:
         files:
-          '<%= assetsPath %>/dev/js/main.js': [
-            'app/**/*.coffee'
-            'app/**/*.hbs'
-          ]
+          '<%= assetsPath %>/dev/js/main.js': ['app/**/*.coffee', 'app/**/*.hbs']
         options:
           transform: ['coffeeify', 'hbsfy']
+          browserifyOptions: 
+            extensions: ['.coffee', '.hbs']
+            debug: true
           alias: ['./app/application.coffee:application']
-          aliasMappings: [{
-            src: '**/*.coffee'
-            dest: 'views'
-            cwd: './app/views'
-          }, {
-            src: '**/*.hbs'
-            dest: 'templates'
-            cwd: './app/views/templates'
-          }, {
-            src: '**/*.coffee'
-            dest: 'controllers'
-            cwd: './app/controllers'
-          }, {
-            src: '**/*.coffee'
-            dest: 'models'
-            cwd: './app/models'
-          }]
+          preBundleCB: (b)->
+            b.plugin remapify, [{
+              src: '**/*.coffee'
+              expose: 'views'
+              cwd: './app/views'
+            }, {
+              src: '**/*.hbs'
+              expose: 'templates'
+              cwd: './app/views/templates'
+            }, {
+              src: '**/*.coffee'
+              expose: 'controllers'
+              cwd: './app/controllers'
+            }, {
+              src: '**/*.coffee'
+              expose: 'models'
+              cwd: './app/models'
+            }]
 
     #清空build目录
     clean:

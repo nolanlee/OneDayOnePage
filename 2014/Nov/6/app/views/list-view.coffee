@@ -1,12 +1,24 @@
 Chaplin = require 'chaplin'
+ItemView = require 'views/item-view'
+DetailView  = require 'views/detail-view'
 
 module.exports = class ListView extends Chaplin.CollectionView
-  id: 'listPage'
+  container: '#listPage'
 
-  template: require 'templates/list-template'
+  listSelector: '#list'
+
+  # template: require 'templates/list-template'
+
+  itemView: ItemView
+
+  useCssAnimation: true
 
   events:
     'click #add': 'create'
+
+  listen:
+    'show collection': 'show'
+    'add coolection': 'add'
 
   initialize: ->
     @$page = $('#listPage')
@@ -14,10 +26,8 @@ module.exports = class ListView extends Chaplin.CollectionView
     @listenTo app.list, 'add', @add
 
   render: ->
-    @$page.html @template()
-    @$list = @$('#list')
+    super
     @addAll()
-    return this
 
   show: ->
     @$el.show()
@@ -26,12 +36,12 @@ module.exports = class ListView extends Chaplin.CollectionView
     @$el.hide()
 
   add: (model) ->
-    @$list.append new app.ItemView(model: model).render().el
+    @listSelector.append new ItemView(model: model).render().el
 
   addAll: ->
-    @$list.html ''
+    @listSelector.html ''
     app.list.each @add, @
 
   create: ->
     @hide()
-    new app.DetailView().render()
+    new DetailView().render()

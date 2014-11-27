@@ -6,14 +6,12 @@ module.exports = class ItemView extends Chaplin.View
   events:
     'click a': 'detail'
 
-  template: require 'templates/item-template'
+  # template: require 'templates/item-template'
 
-  initialize: ->
-    @listenTo @model, 'change', @render
-    @listenTo @model, 'show', @show
-
-  render: ->
-    @$el.html @template @model.toJSON()
+  # Backbone 把listen放在initialize
+  listen:
+    'change model': 'render'
+    'show model': 'show'
 
   detail: ->
     app.indexView.hide()

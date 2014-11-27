@@ -1,10 +1,10 @@
-detail = require 'models/detail'
+Detail = require 'models/detail'
 Chaplin = require 'chaplin'
 
 module.exports = class List extends Chaplin.Collection
-  model: detail
+  model: Detail
 
-  localStorage: new Backbone.LocalStorage('backbone-example')
+  localStorage: new Backbone.LocalStorage('chaplin-example')
 
   filterWithoutAddress: ->
     return @where address: null

@@ -1,26 +1,28 @@
 Chaplin = require 'chaplin'
+Detail = require 'models/detail'
 
 module.exports = class DetailView extends Chaplin.View
-  id: 'detailPage'
+  container: '#detailPage'
 
-  template: require 'templates/detail-template'
+  # template: require 'templates/detail-template'
 
   events:
     'submit form': 'save'
     'click #back': 'back'
     'change #switchAddr': 'switchAddress'
 
+  listen:
+    'invalid model': 'alert'
+
   initialize: ->
     @model = @model or new app.Detail()
-    @listenTo @model, 'invalid', @alert
 
   render: ->
-    @$el.html @template(@model.toJSON())
+    super
     @$address = @$('#address')
     @$switchAddr = @$('#switchAddr')
     @$messages = @$('.msg')
     @form = @$('form')[0]
-    return @
 
   save: (e)->
     e.preventDefault()

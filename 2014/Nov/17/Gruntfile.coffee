@@ -15,8 +15,8 @@ module.exports = (grunt)->
 
           browserifyOptions: 
             extensions: ['.coffee', '.hbs']
-            # ignoreMissing: true
-            require: './app/assets/external.js'
+            ignoreMissing: true
+            # require: './app/assets/external.js'  # alias include require method
 
           alias:
             './app/assets/external.js:external'
