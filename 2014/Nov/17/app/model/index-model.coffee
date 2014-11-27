@@ -1,3 +1,5 @@
+require 'external'
+
 module.exports = ->
   name: 'Nolan'
   age: '23'

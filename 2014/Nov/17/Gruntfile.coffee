@@ -1,3 +1,5 @@
+remapify = require 'remapify'
+
 module.exports = (grunt)->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
@@ -10,37 +12,29 @@ module.exports = (grunt)->
           '<%= assetsPath %>/main.js': 'app/**/*.coffee'
         options:
           transform: ['coffeeify']
-          ## Cannot work to coffeescript
-          # preBundleCB: (b)->
-          #   b.plugin remapify, [{
-          #     src: '**/*.coffee'
-          #     expose: 'view'
-          #     cwd: './app/view'
-          #   }, {
-          #     src: '**/*.coffee'
-          #     expose: 'controller'
-          #     cwd: './app/controller'
-          #   }, {
-          #     src: '**/*.coffee'
-          #     expose: 'model'
-          #     cwd: './app/model'
-          #   }]
-          #   b.on 'remapify:files', (file, expandedAliases)->
-          #     grunt.log.writeln "file: #{file}"
-          #     grunt.log.writeln "expandedAliases: #{JSON.stringify(expandedAliases)}"
-          aliasMappings: [{
-            src: '**/*.coffee'
-            dest: 'view'
-            cwd: './app/view'
-          }, {
-            src: '**/*.coffee'
-            dest: 'controller'
-            cwd: './app/controller'
-          }, {
-            src: '**/*.coffee'
-            dest: 'model'
-            cwd: './app/model'
-          }]
+
+          browserifyOptions: 
+            extensions: '.coffee'
+            ignoreMissing: true
+            require: './app/assets/external.js'
+
+          alias:
+            './app/assets/external.js:external'
+
+          preBundleCB: (b)->
+            b.plugin remapify, [{
+              src: '**/*.coffee'
+              expose: 'view'
+              cwd: './app/view'
+            }, {
+              src: '**/*.coffee'
+              expose: 'controller'
+              cwd: './app/controller'
+            }, {
+              src: '**/*.coffee'
+              expose: 'model'
+              cwd: './app/model'
+            }]
 
     clean:
       dist: [
