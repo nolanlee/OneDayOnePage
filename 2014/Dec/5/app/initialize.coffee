@@ -1,9 +1,9 @@
-App = require 'application'
+App = require './application'
 routes = require './routes'
 
 $ ->
   new App
-    title: 'Form & List with Chaplin'
+    title: 'Hello World With Chaplin'
     controllerSuffix: '-controller'
     pushState: no
     routes: routes

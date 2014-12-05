@@ -4,7 +4,7 @@ Chaplin = require 'chaplin'
 module.exports = class List extends Chaplin.Collection
   model: Detail
 
-  localStorage: new Backbone.LocalStorage('chaplin-example')
+  localStorage: new Store 'chaplin-example'
 
   filterWithoutAddress: ->
     return @where address: null

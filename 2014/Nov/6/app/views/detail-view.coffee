@@ -4,7 +4,7 @@ Detail = require 'models/detail'
 module.exports = class DetailView extends Chaplin.View
   container: '#detailPage'
 
-  # template: require 'templates/detail-template'
+  template: require 'templates/detail-template'
 
   events:
     'submit form': 'save'

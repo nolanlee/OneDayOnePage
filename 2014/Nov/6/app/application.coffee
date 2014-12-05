@@ -1,6 +1,9 @@
 Chaplin = require 'chaplin'
+List = require 'models/list'
+mediator = require './mediator'
 
 module.exports = class App extends Chaplin.Application
-  title: 'Form & List with Chaplin'
-  start: ->
+  # initMediator: ->
+  #   mediator.list = new List
+  #   super
     

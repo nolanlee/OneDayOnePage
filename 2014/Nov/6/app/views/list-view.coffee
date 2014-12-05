@@ -7,7 +7,7 @@ module.exports = class ListView extends Chaplin.CollectionView
 
   listSelector: '#list'
 
-  # template: require 'templates/list-template'
+  template: require 'templates/list-template'
 
   itemView: ItemView
 
@@ -36,7 +36,7 @@ module.exports = class ListView extends Chaplin.CollectionView
     @$el.hide()
 
   add: (model) ->
-    @listSelector.append new ItemView(model: model).render().el
+    @listSelector.append @initItemView(model).render().el
 
   addAll: ->
     @listSelector.html ''
