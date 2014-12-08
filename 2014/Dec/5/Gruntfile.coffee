@@ -41,7 +41,26 @@ module.exports = (grunt)->
         files:
           '<%= assetsPath %>/dev/js/main.js': ['app/**/*.coffee', 'app/**/*.hbs']
         options:
-          transform: ['coffeeify', 'hbsfy']
+          transform: ['coffeeify', 'hbsfy'] 
+          extensions: ['.coffee', '.hbs']
+          debug: true
+          aliasMappings: [{
+              src: '**/*.coffee'
+              dest: 'views'
+              cwd: './app/views'
+            }, {
+              src: '**/*.hbs'
+              dest: 'templates'
+              cwd: './app/views/templates'
+            }, {
+              src: '**/*.coffee'
+              dest: 'controllers'
+              cwd: './app/controllers'
+            }, {
+              src: '**/*.coffee'
+              dest: 'models'
+              cwd: './app/models'
+          }]
 
     #清空build目录
     clean:
@@ -55,5 +74,5 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-contrib-handlebars'
   grunt.loadNpmTasks 'grunt-contrib-clean'
 
-  grunt.registerTask 'build', ['clean','browserify', 'uglify']
+  grunt.registerTask 'build', ['clean','browserify']
   grunt.registerTask 'default', 'build'

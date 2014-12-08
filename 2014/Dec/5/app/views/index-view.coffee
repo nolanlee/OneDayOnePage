@@ -6,4 +6,7 @@ module.exports = class ItemView extends Chaplin.View
 
   container: '#container'
 
-  template: require './templates/index-template'
+  template: require 'templates/index-template'
+
+  getTemplateFunction: ->
+    @template
