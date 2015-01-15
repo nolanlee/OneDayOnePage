@@ -6,7 +6,7 @@ function traditionalAjax() {
 
   function getWaterflows(images, successCallback, failCallback) {
     $.get('data2.json').success(function(waterflows) {
-      images.forEach(function(image, index) {
+      successCallback(images.map(function(image, index) {
         result = {};
         waterflows.some(function(waterflow) {
           if(waterflow.imageId === index) {
@@ -15,12 +15,20 @@ function traditionalAjax() {
             return true;
           }
         });
-        successCallback(result);
-      });
+        return result;
+      }));
     }).fail(failCallback);
   }
 
-  function setWaterflow(image) {
+  function setWaterflows(images) {
+    images.forEach(function(image) {
+      setWaterflow(image, function() {
+        getData(doSometing, errorHandler);
+      })
+    });
+  }
+
+  function setWaterflow(image, callback) {
     var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d');
     var img = new Image();
@@ -35,7 +43,7 @@ function traditionalAjax() {
       ctx.font = '20px sans-serif';
       ctx.fillText(image.waterflow, canvas.width - (image.waterflow.length * 15), 90);
       $('#container').append(canvas);
-      getData(doSometing, errorHandler);
+      callback();
     };
   }
 
@@ -54,7 +62,7 @@ function traditionalAjax() {
   }
 
   $.get('data1.json').success(function(data) {
-    getWaterflows(data, setWaterflow, errorHandler);
+    getWaterflows(data, setWaterflows, errorHandler);
   }).fail(errorHandler);
 
 }
