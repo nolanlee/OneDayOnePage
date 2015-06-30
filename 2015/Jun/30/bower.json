@@ -1,0 +1,7 @@
+{
+  "version": "0.0.0",
+  "name": "form-test",
+  "dependencies": {
+    "bootstrap": "~3.0.0"
+  }
+}
