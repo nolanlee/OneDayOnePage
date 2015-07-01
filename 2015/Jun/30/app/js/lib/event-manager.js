@@ -23,10 +23,11 @@ EventManager.prototype.attachEvent = function (event, handler) {
 
 EventManager.prototype.fireEvent = function (event) {
   var o = this.__container;
+  var args = [].slice.call(arguments, 1);
 
   if (event in o) {
     for (var i = 0, l = o[event].length; i < l; i++) {
-      o[event][i].apply(this);
+      o[event][i].apply(this, args);
     }
   }
 };

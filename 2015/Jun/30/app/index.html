@@ -2,12 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Form Example With Backbone</title>
+    <title>Form Example With React</title>
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">    
-    <link rel="stylesheet" type="text/css" href="css/index.css">    
+    <link rel="stylesheet" type="text/css" href="css/index.css">
   </head>
   <body>
-    
+    <div id="app"></div>
+    <script src="../node_modules/react/dist/react-with-addons.js"></script>
+    <script src="../node_modules/react/dist/JSXTransformer.js"></script>
+    <script src="../node_modules/director/build/director.js"></script>
+    <script src="js/lib/utils.js"></script>
+    <script src="js/lib/event-manager.js"></script>
+    <script src="js/models/model.js"></script>
+    <script type="text/jsx" src="js/views/item.jsx"></script>
+    <script type="text/jsx" src="js/views/detail.jsx"></script>
+    <script type="text/jsx" src="js/views/list.jsx"></script>
+    <script type="text/jsx" src="js/app.jsx"></script>
   </body>
 </html>

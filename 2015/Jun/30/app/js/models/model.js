@@ -22,22 +22,18 @@ var app = app || {};
     }
   };
 
-  app.TodoModel.prototype.subscribe = function (onChange) {
-    this.attachEvent('change', onChange);
-  };
-
-  app.Model.prototype.inform = function () {
+  app.Model.prototype.inform = function (eventName) {
     Utils.store(this.key, this.datas);
-    this.fireEvent('change');
+    this.fireEvent(eventName);
   };
 
   app.Model.prototype.add = function (data) {
     this.datas = this.datas.concat(Utils.extend({
       id: Utils.uuid(),
       date: new Date().toLocaleDateString()
-    }, data);
+    }, data));
 
-    this.inform();
+    this.inform('add');
   };
 
   app.Model.prototype.destroy = function (id) {
@@ -45,7 +41,7 @@ var app = app || {};
       return oldData.id !== id;
     });
 
-    this.inform();
+    this.inform('destroy');
   };
 
   app.Model.prototype.save = function (id, attributes) {
@@ -53,7 +49,7 @@ var app = app || {};
       return data.id !== id ? data : Utils.extend({}, attributes);
     });
 
-    this.inform();
+    this.inform('save');
   };
 
 })();

@@ -4,36 +4,16 @@ var app = app || {};
   'use strict';
   var Item = app.Item;
 
-  var ENTER_KEY = 13;
-
   app.List = React.createClass({
-    getInitialState: function () {
-      return {
-        nowShowing: app.ALL_TODOS,
-        editing: null
-      };
-    },
-
-    componentDidMount: function () {
-      var setState = this.setState;
-      var router = Router({
-        '/': setState.bind(this, {nowShowing: app.ALL_TODOS}),
-        '/active': setState.bind(this, {nowShowing: app.ACTIVE_TODOS}),
-        '/completed': setState.bind(this, {nowShowing: app.COMPLETED_TODOS})
-      });
-      router.init('/');
-    },
-
     render: function() {
-      var items = datas.map(function (data) {
+      var items = this.props.model.datas.map(function (data) {
         return (
           <Item data={data} />
         );
-      });
+      }, this);
 
       return (
-        <button class="btn">新建</button>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th>邮箱</th>
@@ -41,11 +21,11 @@ var app = app || {};
               <th>地址</th>
             </tr>
           </thead>
-          <tbody id="list">
-            {{items}}
+          <tbody>
+            {items}
           </tbody>
         </table>
       );
     }
   });
-})():
+})();
